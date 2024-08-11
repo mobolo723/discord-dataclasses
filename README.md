@@ -39,5 +39,6 @@ command, without that, I couldn't create a class that is stable. Then, I began t
 objects in the documentation. Later realizing that Rapptz already made this in his repo. I continued anyway as I thought
 it could help me to learn coding. I could have saved sevral hours if I remembered it before launching me in that trip.
 
-**Additional information :** Engish is not my native language so semantic errors can be found in this repo and comment may not be translated.
+> [!NOTE]
+> **Additional information :** Engish is not my native language so semantic errors can be found in this repo and comment may not be translated.
 
