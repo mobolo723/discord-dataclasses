@@ -1,14 +1,17 @@
 # Discord Dataclasses
 
+**Status :** 🏗 Work in progress ! ️
+
 This Python "_Package_" is made to implement differents things from the Discord API in Python as dataclasses. Goals for
 this is to parse JSON data recieved from Flask response (or other user made endpoint) and facilitate work on object sent
 by Discord. This is not meant to operate Gateway API.
 
-**Status :** Work in progress ! 🏗️
 
-**I'm not affiliated with Discord.**
 
-## Acknowledgment ⭐️
+> [!NOTE]
+> **I'm not affiliated with Discord.**
+
+## ❤️ Acknowledgment
 
 I would like to thank :
 
@@ -20,25 +23,25 @@ I would like to thank :
   my erros and above all doing the sh**ty works when writting enums and other repetitive task.
 * **PyCharm** – Excellent Python IDE – which provides me a good environment to work in.
 
-## Roadmap 🎯
+## 🎯 Roadmap 
 
-### Done
+### ✅ Done 
 
 * Create dataclasses for all Discord Objects.[^1]
 
-### On the way
+### ⚠️ On the way
 
 * Organize Repo.
 * Implement intanciation of dataclasses from json reading. Nested object should become dataclass as they are parsed.
 * Write a ~~good~~ ~~real~~ ~~meaningful~~ correct README.me (_Maybe write a documentation if not lazy_)
 
-### Not started
+### ❌ Not started
 
 * Manage Partial Data
 
 [^1]: at least completed all missing
 
-## History 📖
+## 📖 History
 
 I was writting a Flask application to make a simple Discord bot that can run slash command, but I was irritated to parse
 JSON manually with key provided by the discord documentation. So I decided to create a class for application command
@@ -49,5 +52,5 @@ objects in the documentation. Later realizing that Rapptz already made this in h
 it could help me to learn coding. I could have saved sevral hours if I remembered it before launching me in that trip.
 
 > [!NOTE]
-> **Additional information :** Engish is not my native language so semantic errors can be found in this repo and comment may not be translated.
+> **Additional information :** English is not my native language so semantic errors can be found in this repo and comment may not be translated.
 
