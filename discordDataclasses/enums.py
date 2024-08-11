@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from enum import Enum
 
+
 class Locale(str, Enum):
     INDONESIAN = "id"
     DANISH = "da"
@@ -35,6 +36,7 @@ class Locale(str, Enum):
     JAPANESE = "ja"
     CHINESE_TAIWAN = "zh-TW"
     KOREAN = "ko"
+
 
 class GuildFeature(str, Enum):
     ANIMATED_BANNER = "ANIMATED_BANNER"
