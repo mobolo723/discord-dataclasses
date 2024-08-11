@@ -22,12 +22,21 @@ I would like to thank :
 
 ## Roadmap 🎯
 
-* [ ] Create dataclasses for all Discord Objects.
-  * [ ] Manage Partial Data
-* [ ] Organize Repo.
-* [ ] Implement intanciation of dataclasses from json reading. Nested object should become dataclass as they are parsed.
-* [ ] Write a ~~good~~ ~~real~~ ~~meaningful~~ correct README.md
-  * [ ] _Maybe write a documentation if not lazy_
+### Done
+
+* Create dataclasses for all Discord Objects.[^1]
+
+### On the way
+
+* Organize Repo.
+* Implement intanciation of dataclasses from json reading. Nested object should become dataclass as they are parsed.
+* Write a ~~good~~ ~~real~~ ~~meaningful~~ correct README.me (_Maybe write a documentation if not lazy_)
+
+### Not started
+
+* Manage Partial Data
+
+[^1]: at least completed all missing
 
 ## History 📖
 
