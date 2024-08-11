@@ -5,7 +5,7 @@ from enum import Enum
 """Contains enumerators used as types in this package."""
 
 
-class InteractionType(Enum):
+class InteractionType(int, Enum):
     PING = 1
     APPLICATION_COMMAND = 2
     MESSAGE_COMPONENT = 3
@@ -13,24 +13,24 @@ class InteractionType(Enum):
     MODAL_SUBMIT = 5
 
 
-class ApplicationCommandType(Enum):
+class ApplicationCommandType(int, Enum):
     CHAT_INPUT = 1
     USER = 2
     MESSAGE = 3
 
 
-class InteractionContextType(Enum):
+class InteractionContextType(int, Enum):
     GUILD = 0
     BOT_DM = 1
     PRIVATE_CHANNEL = 2
 
 
-class ApplicationIntegrationType(Enum):
+class ApplicationIntegrationType(int, Enum):
     GUILD_INSTALL = 0
     USER_INSTALL = 1
 
 
-class ApplicationCommandOptionType(Enum):
+class ApplicationCommandOptionType(int, Enum):
     SUB_COMMAND = 1
     SUB_COMMAND_GROUP = 2
     STRING = 3
@@ -44,7 +44,7 @@ class ApplicationCommandOptionType(Enum):
     ATTACHMENT = 11
 
 
-class InteractionCallbackType(Enum):
+class InteractionCallbackType(int, Enum):
     PONG = 1
     CHANNEL_MESSAGE_WITH_SOURCE = 4
     DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE = 5
@@ -55,7 +55,7 @@ class InteractionCallbackType(Enum):
     PREMIUM_REQUIRED = 10  # @deprecated
 
 
-class EmbedType(Enum):
+class EmbedType(str, Enum):
     rich = 'rich'
     image = 'image'
     video = 'video'
@@ -64,7 +64,7 @@ class EmbedType(Enum):
     link = 'link'
 
 
-class ComponentType(Enum):
+class ComponentType(int, Enum):
     ACTION_ROW = 1
     BUTTON = 2
     STRING_SELECT = 3
@@ -75,7 +75,7 @@ class ComponentType(Enum):
     CHANNEL_SELECT = 8
 
 
-class ButtonStyle(Enum):
+class ButtonStyle(int, Enum):
     PRIMARY = 1
     SECONDARY = 2
     SUCCESS = 3
@@ -84,7 +84,7 @@ class ButtonStyle(Enum):
     PREMIUM = 6
 
 
-class ChannelType(Enum):
+class ChannelType(int, Enum):
     GUILD_TEXT = 0
     DM = 1
     GUILD_VOICE = 2
@@ -100,22 +100,22 @@ class ChannelType(Enum):
     GUILD_MEDIA = 16
 
 
-class TextInputStyle(Enum):
+class TextInputStyle(int, Enum):
     SHORT = 1
     PARAGRAPH = 2
 
 
-class LayoutType(Enum):
+class LayoutType(int, Enum):
     DEFAULT = 1
 
 
-class AllowedMentionType(Enum):
+class AllowedMentionType(str, Enum):
     ROLE_MENTIONS = 'roles'
     USER_MENTIONS = 'users'
     EVERYONE_MENTIONS = 'everyone'
 
 
-class VerificationLevel(Enum):
+class VerificationLevel(int, Enum):
     NONE = 0
     LOW = 1
     MEDIUM = 2
@@ -123,44 +123,44 @@ class VerificationLevel(Enum):
     VERY_HIGH = 4
 
 
-class DefaultMessageNotificationLevel(Enum):
+class DefaultMessageNotificationLevel(int, Enum):
     ALL_MESSAGES = 0
     ONLY_MENTIONS = 1
 
 
-class ExplicitContentFilterLevel(Enum):
+class ExplicitContentFilterLevel(int, Enum):
     DISABLED = 0
     MEMBERS_WITHOUT_ROLES = 1
     ALL_MEMBERS = 2
 
 
-class MFALevel(Enum):
+class MFALevel(int, Enum):
     NONE = 0
     ELEVATED = 1
 
 
-class GuildNSFWLevel(Enum):
+class GuildNSFWLevel(int, Enum):
     DEFAULT = 0
     EXPLICIT = 1
     SAFE = 2
     AGE_RESTRICTED = 3
 
 
-class PremiumTier(Enum):
+class PremiumTier(int, Enum):
     NONE = 0
     TIER_1 = 1
     TIER_2 = 2
     TIER_3 = 3
 
 
-class PremiumType(Enum):
+class PremiumType(int, Enum):
     NONE = 0
     NITRO_CLASSIC = 1
     NITRO = 2
     NITRO_BASIC = 3
 
 
-class MessageType(Enum):
+class MessageType(int, Enum):
     DEFAULT = 0
     RECIPIENT_ADD = 1
     RECIPIENT_REMOVE = 2
@@ -199,41 +199,66 @@ class MessageType(Enum):
     PURCHASE_NOTIFICATION = 44
 
 
-class MessageActivityType(Enum):
+class MessageActivityType(int, Enum):
     JOIN = 1
     SPECTATE = 2
     LISTEN = 3
     JOIN_REQUEST = 5
 
 
-class MessageReferenceType(Enum):
+class MessageReferenceType(int, Enum):
     DEFAULT = 0
     FORWARD = 1
 
 
-class StickerType(Enum):
+class StickerType(int, Enum):
     STANDARD = 1
     GUILD = 2
 
 
-class StickerFormatType(Enum):
+class StickerFormatType(int, Enum):
     PNG = 1
     APNG = 2
     LOTTIE = 3
     GIF = 4
 
 
-class VideoQualityMode(Enum):
+class VideoQualityMode(int, Enum):
     AUTO = 1
     FULL = 2
 
 
-class ForumLayoutType(Enum):
+class ForumLayoutType(int, Enum):
     NOT_SET = 0
     LIST_VIEW = 1
     GALLERY_VIEW = 2
 
 
-class SortOrderType(Enum):
+class SortOrderType(int, Enum):
     LATEST_ACTIVITY = 0
     CREATION_DATE = 1
+
+
+class TeamMemberRoleType(str, Enum):
+    OWNER = ''
+    ADMIN = 'admin'
+    DEVELOPPER = 'developer'
+    READ_ONLY = 'read_only'
+
+
+class MembershipStateEnum(int, Enum):
+    INVITED = 1
+    ACCEPTED = 2
+
+
+class EntitlementType(int, Enum):
+    PURCHASE = 1
+    PREMIUM_SUBSCRIPTION = 2
+    DEVELOPER_GIFT = 3
+    TEST_MODE_PURCHASE = 4
+    FREE_PURCHASE = 5
+    USER_GIFT = 6
+    PREMIUM_PURCHASE = 7
+    APPLICATION_SUBSCRIPTION = 8
+
+
