@@ -1,19 +1,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Optional, List, Union, Dict, Mapping, Any
+from typing import Optional, List, Union, Dict, Mapping
 
-from .flags import MessageFlags, AttachmentFlags, SystemChannelFlags, RoleFlags, GuildMemberFlags, \
-    UserFlags, ChannelFlags
-from .sentinels import MISSING, DEPRECATED
-from .types import InteractionType, ApplicationCommandType, InteractionContextType, \
-    ApplicationIntegrationType, \
-    ApplicationCommandOptionType, InteractionCallbackType, EmbedType, ComponentType, ButtonStyle, ChannelType, \
-    TextInputStyle, LayoutType, AllowedMentionType, VerificationLevel, DefaultMessageNotificationLevel, MFALevel, \
-    PremiumTier, GuildNSFWLevel, PremiumType, MessageReferenceType, MessageActivityType, MessageType, StickerType, \
-    StickerFormatType, VideoQualityMode, ForumLayoutType, SortOrderType
+from .enums import *
+from .flags import *
+from .sentinels import *
+from .types import *
 
 """Describes most of Discord object used in their API as dataclasses"""
+
 
 class Snowflake(int):
     """Represents Discord Snowflake as an integer"""
@@ -114,7 +110,7 @@ class Interaction:
     token: str
     type: InteractionType
     entitlements: List[Entitlement]
-    authorizing_integration_owners: AuthorizingIntegrationOwners
+    authorizing_integration_owners: Dict[ApplicationIntegrationType]
     data: Optional[InteractionData] = field(default=MISSING)
     guild: Optional[Guild] = field(default=MISSING)
     guild_id: Optional[Snowflake] = field(default=MISSING)
@@ -143,7 +139,7 @@ class InteractionCallbackData:
 
     @dataclass
     class Autocomplete:
-        choice: List[Choices]
+        choice: List[ApplicationCommandOptionChoiceStructure]
 
     @dataclass
     class Modal:
@@ -355,7 +351,7 @@ class Guild:
     default_message_notifications: DefaultMessageNotificationLevel
     roles: List[Role]
     emojis: List[Emoji]
-    features: List[GuildFeatures]
+    features: List[GuildFeature]
     mfa_level: MFALevel
     system_channel_flags: SystemChannelFlags
     premium_tier: PremiumTier
@@ -489,14 +485,14 @@ class Message:
     embeds: List[Embed]
     type: MessageType
     edited_timestamp: Optional[str] = field(default=MISSING)
-    mention_channels: Optional[List[ChannelMention]] = field(default=MISSING)
+    mention_channels: Optional[List[ChannelMentionObject]] = field(default=MISSING)
     attachments: Optional[List[Attachment]] = field(default=MISSING)
     reactions: Optional[List[Reaction]] = field(default=MISSING)
     nonce: Optional[Union[int | str]] = field(default=MISSING)
     pinned: Optional[bool] = field(default=MISSING)
     webhook_id: Optional[Snowflake] = field(default=MISSING)
-    activity: Optional[Activity] = field(default=MISSING)
-    application: Optional[Application] = field(default=MISSING)  # Partial
+    activity: Optional[MessageActivity] = field(default=MISSING)
+    application: Optional[ApplicationObject] = field(default=MISSING)  # Partial
     application_id: Optional[Snowflake] = field(default=MISSING)
     flags: Optional[MessageFlags] = field(default=MISSING)
     message_reference: Optional[MessageReference] = field(default=MISSING)
@@ -518,7 +514,7 @@ class Message:
 @dataclass
 class MessageActivity:
     type: MessageActivityType
-    party_id: Optional[Snowflake] = field(default=MISSING)
+    party_id: Optional[str] = field(default=MISSING)
 
 
 @dataclass
@@ -709,3 +705,87 @@ class Reaction:
 class ReactionCountDetailsObject:
     burst: int
     normal: int
+
+
+@dataclass
+class ApplicationObject:
+    id: Snowflake
+    name: str
+    icon: Optional[str]
+    bot_public: bool
+    bot_require_code_grant: bool
+    verify_key: str
+    description: Optional[str] = field(default=MISSING)
+    rpc_origins: Optional[List[str]] = field(default=MISSING)
+    bot: Optional[User] = field(default=MISSING)  # partial
+    terms_of_service_url: Optional[str] = field(default=MISSING)
+    privacy_policy_url: Optional[str] = field(default=MISSING)
+    owner: Optional[User] = field(default=MISSING)  # partial
+    summary: Optional[str] = field(default=DEPRECATED)
+    team: Optional[TeamObject] = field(default=MISSING)
+    guild_id: Optional[Snowflake] = field(default=MISSING)
+    guild: Optional[Guild] = field(default=MISSING)  # partial
+    primary_sku_id: Optional[Snowflake] = field(default=MISSING)
+    slug: Optional[str] = field(default=MISSING)
+    cover_image: Optional[str] = field(default=MISSING)
+    flags: Optional[ApplicationFlags] = field(default=MISSING)
+    approximate_guild_count: Optional[int] = field(default=MISSING)
+    redirect_uris: Optional[List[str]] = field(default=MISSING)
+    interactions_endpoint_url: Optional[str] = field(default=MISSING)
+    role_connections_verification_url: Optional[str] = field(default=MISSING)
+    tags: Optional[List[str]] = field(default=MISSING)
+    install_params: Optional[IntallParamsObject] = field(default=MISSING)
+    integration_types_config: Optional[Dict[ApplicationIntegrationType]] = field(default=MISSING)
+    custom_install_url: Optional[str] = field(default=MISSING)
+
+
+@dataclass
+class IntallParamsObject:
+    scopes: List[str]
+    permissions: str
+
+
+@dataclass
+class TeamObject:
+    id: Snowflake
+    members: [TeamMemberObject]
+    name: str
+    owner_user_id: Snowflake
+    icon: Optional[str] = field(default=MISSING)
+
+
+@dataclass
+class TeamMemberObject:
+    membership_state: MembershipStateEnum
+    team_id: Snowflake
+    user: User  # Partial
+    role: TeamMemberRoleType
+
+
+@dataclass
+class Entitlement:
+    id: Snowflake
+    sku_id: Snowflake
+    application_id: Snowflake
+    type: EntitlementType
+    deleted: bool
+    user_id: Optional[Snowflake] = field(default=MISSING)
+    starts_at: Optional[str] = field(default=MISSING)  # timestamp
+    ends_at: Optional[str] = field(default=MISSING)  # timestamp
+    guild_id: Optional[Snowflake] = field(default=MISSING)
+    consumed: Optional[bool] = field(default=MISSING)
+
+
+@dataclass
+class ChannelMentionObject:
+    id: Snowflake
+    guild_id: Snowflake
+    type: ChannelType
+    name: str
+
+
+@dataclass
+class ApplicationCommandOptionChoiceStructure:
+    name: str
+    value: ApplicationCommandOptionType
+    name_localizations: Optional[Dict[Locale, str]] = field(default=MISSING)
