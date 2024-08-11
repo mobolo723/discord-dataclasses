@@ -260,5 +260,3 @@ class EntitlementType(int, Enum):
     USER_GIFT = 6
     PREMIUM_PURCHASE = 7
     APPLICATION_SUBSCRIPTION = 8
-
-

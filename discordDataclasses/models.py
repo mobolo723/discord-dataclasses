@@ -349,6 +349,7 @@ class Guild:
     afk_timeout: int
     verification_level: VerificationLevel
     default_message_notifications: DefaultMessageNotificationLevel
+    explicit_content_filter: ExplicitContentFilterLevel
     roles: List[Role]
     emojis: List[Emoji]
     features: List[GuildFeature]
@@ -359,7 +360,7 @@ class Guild:
     premium_progress_bar_enabled: bool
     icon: Optional[str] = field(default=MISSING)
     icon_hash: Optional[str] = field(default=MISSING)
-    splace: Optional[str] = field(default=MISSING)
+    splash: Optional[str] = field(default=MISSING)
     discovery_splash: Optional[str] = field(default=MISSING)
     owner: Optional[bool] = field(default=MISSING)
     owner_id: Optional[Snowflake] = field(default=MISSING)
@@ -371,7 +372,7 @@ class Guild:
     application_id: Optional[Snowflake] = field(default=MISSING)
     system_channel_id: Optional[Snowflake] = field(default=MISSING)
     rules_channel_id: Optional[Snowflake] = field(default=MISSING)
-    max_pressences: Optional[int] = field(default=MISSING)
+    max_presences: Optional[int] = field(default=MISSING)
     max_members: Optional[int] = field(default=MISSING)
     vanity_url_code: Optional[str] = field(default=MISSING)
     description: Optional[str] = field(default=MISSING)
