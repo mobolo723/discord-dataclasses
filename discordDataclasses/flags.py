@@ -4,7 +4,8 @@ from enum import Enum
 
 """Contains enumerators used as flags  in this package."""
 
-class MessageFlags(Enum):
+
+class MessageFlags(int, Enum):
     CROSSPOSTED = 1 << 0
     IS_CROSSPOST = 1 << 1
     SUPPRESS_EMBEDS = 1 << 2
@@ -18,11 +19,11 @@ class MessageFlags(Enum):
     IS_VOICE_MESSAGE = 1 << 13
 
 
-class AttachmentFlags(Enum):
+class AttachmentFlags(int, Enum):
     IS_REMIX = 1 << 2
 
 
-class SystemChannelFlags(Enum):
+class SystemChannelFlags(int, Enum):
     SUPPRESS_JOIN_NOTIFICATIONS = 1 << 0
     SUPPRESS_PREMIUM_SUBSCRIPTIONS = 1 << 1
     SUPPRESS_GUILD_REMINDER_NOTIFICATIONS = 1 << 2
@@ -31,18 +32,18 @@ class SystemChannelFlags(Enum):
     SUPPRESS_ROLE_SUBSCRIPTION_PURCHASE_NOTIFICATION_REPLIES = 1 << 5
 
 
-class RoleFlags(Enum):
+class RoleFlags(int, Enum):
     IN_PROMPT = 1 << 0
 
 
-class GuildMemberFlags(Enum):
+class GuildMemberFlags(int, Enum):
     DID_REJOIN = 1 << 0
     COMPLETED_ONBOARDING = 1 << 1
     BYPASSES_VERIFICATION = 1 << 2
     STARTED_ONBOARDING = 1 << 3
 
 
-class UserFlags(Enum):
+class UserFlags(int, Enum):
     STAFF = 1 << 0
     PARTNER = 1 << 1
     HYPESQUAD = 1 << 2
@@ -60,7 +61,20 @@ class UserFlags(Enum):
     ACTIVE_DEVELOPER = 1 << 22
 
 
-class ChannelFlags(Enum):
+class ChannelFlags(int, Enum):
     PINNED = 1 << 1
     REQUIRE_TAG = 1 << 4
     HIDE_MEDIA_DOWNLOAD_OPTIONS = 1 << 15
+
+
+class ApplicationFlags(int, Enum):
+    APPLICATION_AUTO_MODERATION_RULE_CREATE_BADGE = 1 << 6
+    GATEWAY_PRESENCE = 1 << 12
+    GATEWAY_PRESENCE_LIMITED = 1 << 13
+    GATEWAY_GUILD_MEMBERS = 1 << 14
+    GATEWAY_GUILD_MEMBERS_LIMITED = 1 << 15
+    VERIFICATION_PENDING_GUILD_LIMIT = 1 << 16
+    EMBEDDED = 1 << 17
+    GATEWAY_MESSAGE_CONTENT = 1 << 18
+    GATEWAY_MESSAGE_CONTENT_LIMITED = 1 << 19
+    APPLICATION_COMMAND_BADGE = 1 << 23
