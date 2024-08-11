@@ -25,6 +25,7 @@ MISSING: Any = _MissingSentinel()
 
 
 class _DeprecatedSentinel:
+    """Denotes deprecated item"""
     __slots__ = ()
 
     def __eq__(self, other) -> bool:
