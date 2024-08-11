@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from enum import Enum
 
+"""Contains enumerators used as types in this package."""
+
 
 class InteractionType(Enum):
     PING = 1

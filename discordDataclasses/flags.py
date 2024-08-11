@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from enum import Enum
 
+"""Contains enumerators used as flags  in this package."""
 
 class MessageFlags(Enum):
     CROSSPOSTED = 1 << 0

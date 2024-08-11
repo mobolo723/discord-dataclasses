@@ -1,6 +1,8 @@
 from __future__ import annotations
 from typing import Any
 
+"""Contains sentinels used in this package."""
+
 
 class _MissingSentinel:
     """Borrowed from Rapptz/discord.py"""

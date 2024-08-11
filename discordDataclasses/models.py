@@ -3,16 +3,17 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Optional, List, Union, Dict, Mapping, Any
 
-from DiscordStructures.flags import MessageFlags, AttachmentFlags, SystemChannelFlags, RoleFlags, GuildMemberFlags, \
+from .flags import MessageFlags, AttachmentFlags, SystemChannelFlags, RoleFlags, GuildMemberFlags, \
     UserFlags, ChannelFlags
-from DiscordStructures.sentinels import MISSING, DEPRECATED
-from DiscordStructures.types import InteractionType, ApplicationCommandType, InteractionContextType, \
+from .sentinels import MISSING, DEPRECATED
+from .types import InteractionType, ApplicationCommandType, InteractionContextType, \
     ApplicationIntegrationType, \
     ApplicationCommandOptionType, InteractionCallbackType, EmbedType, ComponentType, ButtonStyle, ChannelType, \
     TextInputStyle, LayoutType, AllowedMentionType, VerificationLevel, DefaultMessageNotificationLevel, MFALevel, \
     PremiumTier, GuildNSFWLevel, PremiumType, MessageReferenceType, MessageActivityType, MessageType, StickerType, \
     StickerFormatType, VideoQualityMode, ForumLayoutType, SortOrderType
 
+"""Describes most of Discord object used in their API as dataclasses"""
 
 class Snowflake(int):
     """Represents Discord Snowflake as an integer"""
